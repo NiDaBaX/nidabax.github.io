@@ -73,6 +73,7 @@
             border: 1px solid rgba(255,255,255,0.05);
             margin: 20px 0;
             box-shadow: 0 4px 12px rgba(46, 164, 79, 0.2);
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #2ea44f;
@@ -89,7 +90,7 @@
         h2 {
             color: #f0f6fc;
             font-size: 16px;
-            margin: 20px 0 10px 0;
+            margin: 25px 0 12px 0;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -102,18 +103,47 @@
             border-radius: 8px;
             margin-bottom: 15px;
         }
-        .code-block {
+        .copy-container {
+            display: flex;
+            align-items: center;
             background: #0d1117;
             border: 1px solid #30363d;
-            padding: 10px 15px;
             border-radius: 6px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .code-block {
+            padding: 12px 15px;
             font-family: monospace;
             color: #58a6ff;
             font-size: 13px;
-            margin: 8px 0;
+            flex-grow: 1;
             word-break: break-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        ul {
+        .copy-btn {
+            background: #21262d;
+            color: #c9d1d9;
+            border: none;
+            border-left: 1px solid #30363d;
+            padding: 12px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 80px;
+        }
+        .copy-btn:hover {
+            background: #30363d;
+            color: #f0f6fc;
+        }
+        .copy-btn.copied {
+            background: #238636;
+            color: white;
+        }
+        ul, ol {
             padding-left: 20px;
             margin-bottom: 15px;
         }
@@ -124,11 +154,50 @@
             color: #58a6ff;
             font-weight: bold;
         }
-        ol {
-            padding-left: 20px;
+
+        /* FAQ СТИЛОВЕ */
+        .faq-section {
+            border-top: 1px solid #30363d;
+            margin-top: 30px;
+            padding-top: 15px;
         }
-        ol li {
-            margin-bottom: 10px;
+        .faq-item {
+            border-bottom: 1px solid #21262d;
+            padding: 12px 0;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #c9d1d9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            font-size: 14px;
+        }
+        .faq-question:hover {
+            color: #f0f6fc;
+        }
+        .faq-question::after {
+            content: '＋';
+            font-size: 14px;
+            color: #8b949e;
+            transition: transform 0.2s ease;
+        }
+        .faq-item.active .faq-question::after {
+            content: '－';
+            color: #58a6ff;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            color: #8b949e;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        .faq-answer p {
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -141,51 +210,4 @@
             <p class="bio">Verified TorBox Pro Member | Tech & Streaming Guides</p>
         </div>
 
-        <a href="https://torbox.app/subscription?referral=741badb4-5940-45a1-989c-16bb967a4192" class="btn" target="_blank">
-            🚀 Activate TorBox Pro Bonus
-        </a>
-
-        <div class="guide-content">
-            <p>Hey everyone! Sharing my verified TorBox referral link. I am currently on the highest Pro plan, so the link is 100% active and working. This referral works for <strong>ALL TorBox plans</strong> (Essential, Standard, and Pro), even the cheapest one!</p>
-            
-            <p style="margin-top: 10px;">If your browser or adblocker blocks the direct button, you can use the manual code at checkout:</p>
-            <div class="code-block">741badb4-5940-45a1-989c-16bb967a4192</div>
-
-            <h2>🛑 1. CRITICAL: Avoid the 24h Free Trial!</h2>
-            <div class="alert-box">
-                Do NOT activate the 24-hour free trial. TorBox’s system counts the trial as your "first activation." If you use it, it will void the referral, and you will lose all your bonus days when you buy a plan later. Skip it and go straight to a paid plan.
-            </div>
-
-            <h2>📅 2. Get your Free Bonus Days (Any plan & payment)</h2>
-            <p>Using the referral link automatically adds <strong>7 EXTRA FREE DAYS</strong> for every month you purchase on your first order:</p>
-            <ul style="margin-top: 10px;">
-                <li>Buy 1 Month ➡️ <span class="highlight-days">Get 7 Days Free</span></li>
-                <li>Buy 3 Months ➡️ <span class="highlight-days">Get 21 Days Free</span></li>
-                <li>Buy 6 Months ➡️ <span class="highlight-days">Get 42 Days Free</span></li>
-                <li>🔥 Buy 1 Year ➡️ <span class="highlight-days">Get 84 DAYS FREE!</span> (Nearly 3 extra months free)</li>
-            </ul>
-            <p style="font-size: 13px; color: #8b949e; font-style: italic;">Note: Extra bonus days will NOT show up in your shopping cart during checkout. The system tracks it and adds them to your profile immediately AFTER the transaction is completed.</p>
-
-            <h2>💸 3. OPTIONAL: Extra 30% OFF with Crypto</h2>
-            <p>If you prefer to pay with Crypto, make sure to select <strong>One-Time Purchase</strong> (NOT a subscription) at checkout, and use the discount code <strong style="color: #58a6ff;">SIGMA30</strong> to get an extra 30% OFF your order.</p>
-
-            <h2 style="font-size: 14px; color: #58a6ff;">⚡ Quick & Easy Crypto Guide (5 Mins):</h2>
-            <ol>
-                <li>Download the <strong>Nexus Wallet</strong> app on your phone (App Store / Google Play).</li>
-                <li>Tap "Buy", select <strong>Litecoin (LTC)</strong> (fees are literally just pennies), and purchase it instantly using Revolut or your normal card.</li>
-                <li>Open the TorBox checkout on your PC/Laptop and select Litecoin. It will display a QR code and the exact amount.</li>
-                <li>Open Nexus on your phone, tap "Send", scan the QR code on your monitor, enter the exact amount and hit send!</li>
-            </ol>
-            <p style="font-size: 13px; color: #8b949e; margin-top: 10px; font-style: italic;">(If you are paying with a regular Card/PayPal, just ignore the crypto steps and purchase normally – you still get the free bonus days!).</p>
-
-            <h2>💬 Need help or have questions?</h2>
-            <p>If you have any issues with the sign-up process, codes, or setup, just drop a comment on Reddit or send me a DM! I'm active and happy to help you get everything configured for maximum download speeds.</p>
-        </div>
-
-        <a href="https://torbox.app/subscription?referral=741badb4-5940-45a1-989c-16bb967a4192" class="btn" style="margin-top: 30px;" target="_blank">
-            🚀 Activate TorBox Pro Bonus & Sign Up
-        </a>
-    </div>
-
-</body>
-</html>
+        <a href="
