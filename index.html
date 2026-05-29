@@ -135,4 +135,165 @@
 
         .data-row:last-child {
             border-bottom: none;
-            padding-bottom
+            padding-bottom: 0;
+        }
+
+        .bold-val {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .small-note {
+            font-size: 13px;
+            color: var(--dcolor);
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .warn-text strong {
+            color: var(--rcolor);
+        }
+
+        .step-item {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #e5e7eb;
+        }
+        .step-item:last-child { margin-bottom: 0; }
+        
+        .step-index {
+            color: var(--gcolor);
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .collapse-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .collapse-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #ffffff;
+            text-align: left;
+            padding: 18px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapse-symbol {
+            color: var(--gcolor);
+            font-size: 18px;
+        }
+
+        .collapse-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+            color: var(--dcolor);
+            font-size: 14px;
+            padding-bottom: 16px;
+        }
+
+        .footer-info {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--dcolor);
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-holder">
+        <div class="top-info">
+            <div class="alert-pill">
+                <div class="alert-dot"></div>
+                Referral Token: Active & Verified
+            </div>
+            <h1>TorBox Account Setup</h1>
+            <p class="sub-text">Stremio, Torrentio, and Kodi configuration guide.</p>
+        </div>
+
+        <a href="https://debrid-activate.link/go" class="action-link">ACTIVATE PRO BONUS & SIGN UP</a>
+
+        <div class="content-box">
+            <h2>First-Order Bonus Allocation</h2>
+            <div class="data-row"><span>📦 Buy 1 Month Plan</span><span class="bold-val">+7 Days Free</span></div>
+            <div class="data-row"><span>📦 Buy 3 Months Plan</span><span class="bold-val">+21 Days Free</span></div>
+            <div class="data-row"><span>📦 Buy 6 Months Plan</span><span class="bold-val">+42 Days Free</span></div>
+            <div class="data-row"><span>🔥 Buy 1 Year Plan</span><span class="bold-val" style="color: var(--gcolor)">+84 Days Free</span></div>
+            <p class="small-note">Note: Extra days process automatically in the background and attach directly to your profile right after payment clears.</p>
+        </div>
+
+        <div class="content-box" style="border-left: 3px solid var(--rcolor);">
+            <h2>🛑 Critical Setup Step</h2>
+            <p class="warn-text" style="font-size: 14px;"><strong>DO NOT ACTIVATE THE 24H FREE TRIAL.</strong> TorBox logs the free trial as your account's very first activation. Doing this permanently blocks the system from applying your first-order bonus days later. Skip the trial entirely.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>💸 Optional: Extra 30% OFF via Crypto</h2>
+            <p style="font-size: 14px; color: var(--dcolor); margin-bottom: 16px;">
+                To stack an extra discount with your free days, choose <strong>One-Time Purchase</strong> at checkout and apply voucher code <span style="color: var(--gcolor); font-weight: 700;">SIGMA30</span>.
+            </p>
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 16px;">
+                <div class="step-item"><span class="step-index">01.</span> Download <strong>Nexus Wallet</strong> from the App Store or Google Play.</div>
+                <div class="step-item"><span class="step-index">02.</span> Tap "Buy", select <strong>Litecoin (LTC)</strong> for low fees, and fund it using card/Revolut.</div>
+                <div class="step-item"><span class="step-index">03.</span> Select Litecoin at TorBox checkout to generate the invoice QR code.</div>
+                <div class="step-item"><span class="step-index">04.</span> Open Nexus, tap "Send", scan the QR code, enter the exact amount, and pay.</div>
+            </div>
+            <p class="small-note" style="margin-top: 12px;">Using Card or PayPal? Just ignore the crypto steps and buy normally—the free bonus days apply automatically either way!</p>
+        </div>
+
+        <div style="padding: 0 10px;">
+            <h2>Documentation & Support</h2>
+            
+            <div class="collapse-item">
+                <button class="collapse-btn" onclick="openItem(this)">
+                    Why aren't the bonus days visible in my shopping cart? <span class="collapse-symbol">+</span>
+                </button>
+                <div class="collapse-body">
+                    The referral system tracks your activation in the background. It won't alter the checkout page price layout, but applies the extra free days directly to your dashboard right after your payment is completed.
+                </div>
+            </div>
+
+            <div class="collapse-item">
+                <button class="collapse-btn" onclick="openItem(this)">
+                    Need help configuring your setup? <span class="collapse-symbol">+</span>
+                </button>
+                <div class="collapse-body">
+                    If you run into issues or need help syncing TorBox with Stremio for maximum caching speeds, feel free to drop a comment on the original Reddit thread or send a direct message!
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            Secure link • TorBox compatible
+        </div>
+    </div>
+
+    <script>
+        function openItem(element) {
+            const body = element.nextElementSibling;
+            const symbol = element.querySelector('.collapse-symbol');
+            
+            if (body.style.maxHeight && body.style.maxHeight !== "0px") {
+                body.style.maxHeight = "0px";
+                symbol.textContent = "+";
+            } else {
+                document.querySelectorAll('.collapse-body').forEach(item => item.style.maxHeight = "0px");
+                document.querySelectorAll('.collapse-symbol').forEach(item => item.textContent = "+");
+                
+                body.style.maxHeight = body.scrollHeight + "px";
+                symbol.textContent = "−";
+            }
+        }
+    </script>
+</body>
+</html>
