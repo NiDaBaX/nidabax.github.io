@@ -42,6 +42,7 @@
             margin-bottom: 35px;
         }
 
+        /* ПОДЧЕРТАН БАДЖ ЗА ДЪЛГОСРОЧНА ВАЛИДНОСТ */
         .alert-pill {
             display: inline-flex;
             align-items: center;
@@ -53,9 +54,10 @@
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 20px;
-            border: 1px solid rgba(0, 255, 135, 0.15);
+            border: 1px solid rgba(0, 255, 135, 0.25);
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.05);
         }
 
         .alert-dot {
@@ -246,7 +248,7 @@
         <div class="top-info">
             <div class="alert-pill">
                 <div class="alert-dot"></div>
-                PRO DEPLOYMENT NODE ACTIVE: <span id="current-month">VALIDATED</span>
+                PRO TOKEN STATUS: SECURED & ACTIVE UNTIL JULY 2027
             </div>
             <h1>TorBox Account Deployment</h1>
             <p class="sub-text">Stremio, Torrentio, and Kodi configuration sync pipeline.</p>
@@ -260,7 +262,7 @@
             <div class="tech-tags">
                 <span class="tag">Stremio (All Devices)</span>
                 <span class="tag">Torrentio Addon</span>
-                <span class="tag">Kodi / Real-Debrid API Wrapper</span>
+                <span class="tag">Kodi Media Center</span>
                 <span class="tag">CyberFlix / Syncler</span>
             </div>
         </div>
@@ -279,7 +281,7 @@
             <ul class="feature-list">
                 <li>Zero Logging & Secure SSL Encrypted Caching</li>
                 <li>No VPN Required (Bypass ISP Throttling Completely)</li>
-                <li>Instant 100 Gbps Seedbox Multi-Connection Pipelines</li>
+                <li>Instant 80 Gbps Seedbox Multi-Connection Pipelines</li>
             </ul>
         </div>
 
@@ -330,10 +332,6 @@
     </div>
 
     <script>
-        const monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
-        const d = new Date();
-        document.getElementById("current-month").innerHTML = "VERIFIED FOR " + monthNames[d.getMonth()] + " " + d.getFullYear();
-
         function openItem(element) {
             const body = element.nextElementSibling;
             const symbol = element.querySelector('.collapse-symbol');
