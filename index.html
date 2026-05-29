@@ -10,6 +10,7 @@
             --ccolor: #131924;
             --gcolor: #00ff87;
             --ghover: #00e074;
+            --wcolor: #fbbf24;
             --rcolor: #f87171;
             --tcolor: #f3f4f6;
             --dcolor: #9ca3af;
@@ -42,35 +43,50 @@
             margin-bottom: 35px;
         }
 
+        /* КОМПАКТЕН И ЕЛЕГАНТЕН БАДЖ */
         .alert-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(0, 255, 135, 0.06);
-            color: var(--gcolor);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 255, 135, 0.15);
-            letter-spacing: 0.5px;
+            gap: 6px;
+            background: rgba(251, 191, 36, 0.04);
+            color: var(--wcolor);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            border: 1px solid rgba(251, 191, 36, 0.12);
+            letter-spacing: 0.8px;
             text-transform: uppercase;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            transition: all 0.3s ease;
+        }
+
+        .alert-pill.success {
+            background: rgba(0, 255, 135, 0.04);
+            color: var(--gcolor);
+            border: 1px solid rgba(0, 255, 135, 0.12);
         }
 
         .alert-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--gcolor);
+            width: 5px;
+            height: 5px;
+            background-color: var(--wcolor);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--gcolor);
+            box-shadow: 0 0 8px var(--wcolor);
+            animation: pulse-node 0.6s infinite;
+        }
+
+        .alert-pill.success .alert-dot {
+            background-color: var(--gcolor);
+            box-shadow: 0 0 8px var(--gcolor);
             animation: pulse-node 2s infinite;
         }
 
         @keyframes pulse-node {
-            0% { opacity: 0.4; }
+            0% { opacity: 0.5; }
             50% { opacity: 1; }
-            100% { opacity: 0.4; }
+            100% { opacity: 0.5; }
         }
 
         h1 {
@@ -244,9 +260,9 @@
 
     <div class="main-holder">
         <div class="top-info">
-            <div class="alert-pill">
+            <div class="alert-pill" id="pill-status">
                 <div class="alert-dot"></div>
-                PRO DEPLOYMENT NODE ACTIVE: <span id="current-month">VALIDATING</span>
+                <span id="current-month">CHECKING NODE...</span>
             </div>
             <h1>TorBox Account Deployment</h1>
             <p class="sub-text">Stremio, Torrentio, and Kodi configuration sync pipeline.</p>
@@ -333,8 +349,16 @@
     </div>
 
     <script>
-        // Твърдо фиксиран статус до Август 2027 за максимално съвпадение с Reddit поста ти
-        document.getElementById("current-month").innerHTML = "VERIFIED STATUS SECURED UNTIL AUGUST 2027";
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const pill = document.getElementById("pill-status");
+                const text = document.getElementById("current-month");
+                
+                pill.classList.add("success");
+                // Съкратен, силно въздействащ ИТ формат (поддържа правоъгълна форма на баджа)
+                text.innerHTML = "NODE SECURED • AUG 2027";
+            }, 1100); 
+        });
 
         function openItem(element) {
             const body = element.nextElementSibling;
